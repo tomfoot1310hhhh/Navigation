@@ -1,5 +1,12 @@
 
                                                  Chapter 2 Dynamic Programmings
                                                  
-Renforcement Learning could mainly consist of two forms, model-based ones and model-free ones. Model-based means that the enivronment of the problem is known(e.g. the transition probability for MDP for the problem). The definition of Dynamic Programmings is to solve the problem by referring to future subproblems(e.g. Bellman recursive equation). For this chapter, we will focus on three representative methods: Value Iteration method, Real-time Value Iteration and Policy Iteration. All of these methods are model-based, depending on $P(s'|s, a)$.
-Starting with Value Iteration. It is a method consisting of iterations of evaluation on states and a greedy deterministic policy to maximize value for all states.
+Reinforcement Learning can generally be divided into two categories: model-based methods and model-free methods. 
+
+Model-based methods assume that the environment dynamics are known, such as the transition probability function in a Markov Decision Process (MDP), denoted by \(P(s' \mid s,a)\). In contrast, model-free methods learn optimal behaviors directly from sampled interactions with the environment without explicitly knowing the transition model.
+
+Dynamic Programming (DP) refers to a class of methods that solve sequential decision-making problems through recursive decomposition into future subproblems, as characterized by the Bellman equations.
+
+In this chapter, we focus on three representative DP-based methods: Value Iteration (VI), Real-Time Dynamic Programming (RTDP), and Policy Iteration (PI). All of these methods are model-based and rely on knowledge of the transition dynamics \(P(s' \mid s,a)\).
+
+We begin with Value Iteration. Value Iteration iteratively updates the value function using the Bellman optimality operator, while implicitly deriving a greedy deterministic policy with respect to the current value estimate.
