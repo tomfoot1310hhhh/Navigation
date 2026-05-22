@@ -10,8 +10,8 @@ Dynamic Programming (DP) refers to a class of methods that solve sequential deci
 In this chapter, we focus on three representative DP-based methods: Value Iteration (VI), Real-Time Dynamic Programming (RTDP), and Policy Iteration (PI). All of these methods are model-based and rely on knowledge of the transition dynamics $P(s' \mid s,a)$.
 
 We begin with Value Iteration. Value Iteration iteratively updates the value function using the Bellman optimality operator, while implicitly deriving a greedy deterministic policy with respect to the current value estimate. With $V_0$ beinging the initial value function estimate, iterations of updating value function(Bellman backup) are as follows:
-$$
+$
 V_{k+1}(s) = \max_a \left[
 R(s,a) + \gamma \sum_{s'} p(s' \mid s,a)V_k(s')
 \right]
-$$
+$
