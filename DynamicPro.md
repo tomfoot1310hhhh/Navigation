@@ -11,4 +11,4 @@ In this chapter, we focus on three representative DP-based methods: Value Iterat
 
 We begin with Value Iteration. Value Iteration iteratively updates the value function using the Bellman optimality operator, while implicitly deriving a greedy deterministic policy with respect to the current value estimate. With $V_0$ beinging the initial value function estimate, iterations of updating value function(Bellman backup) are as follows:
 
-$V_{k+1}(s)=max_{a}[R(s,a)+\sigma \sum_{s'}p(s'\mid s,a)V_k(s')]$
+$V_{k+1}(s)=max_{a}[R(s,a)+\gamma \sum_{s'}p(s'\mid s,a)V_k(s')]$
