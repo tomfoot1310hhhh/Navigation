@@ -17,5 +17,6 @@ The book just stated that we can verify contraction for the Bellman backup, whic
 
 $max_{s}\|V_{k+1}(s)-V^{*}(s)\|\leq \gamma_s \|V_{k}(s)-V^{*}(s)\|$
 
-We will try to prove this statement:
+Here is the  proofing to this statement:
 
+With the Bellman Backup notation denoted by $\mathcal{T}$, 
