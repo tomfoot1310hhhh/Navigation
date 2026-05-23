@@ -47,7 +47,7 @@ Hence, we could have:
 \begin{aligned}
 \mathcal{T}V_k(s)-\mathcal{T}V^*(s)
 &= \mathcal{T}V_k(s)-V^*(s)\\
-&= R(s,a)+\gamma \sum_{s'}p(s'\mid s,a)V_k(s')-V^*(s)\\
+&= \(R(s,a)+\gamma \sum_{s'}p(s'\mid s,a)V_k(s')\)-V^*(s)\\
 &\leq R(s,a)+\gamma \sum_{s'}p(s'\mid s,a)V_k(s')
 -\left(R(s,a)+\gamma \sum_{s'}p(s'\mid s,a)V^*(s')\right)\\
 &= \gamma \sum_{s'}p(s'\mid s,a)\left(V_k(s')-V^*(s')\right)
