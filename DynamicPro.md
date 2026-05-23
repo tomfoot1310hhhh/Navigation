@@ -16,6 +16,11 @@ $V_{k+1}(s) = \max_a \left[R(s,a) + \gamma \sum_{s'} p(s' \mid s,a)V_k(s')\right
 The book just stated that we can verify contraction for the Bellman backup, which is shown as follows(important for value iteration and comming Q-learning):
 
 $\max_s \|V_{k+1}(s)-V^{*}(s)\| \leq \gamma \max_s \|V_k(s)-V^{*}(s)\|$
+$$
+\max_s \left| V_{k+1}(s)-V^*(s) \right|
+\leq
+\gamma \max_s \left| V_k(s)-V^*(s) \right|
+$$
 
 Here is the  proofing to this statement:
 
