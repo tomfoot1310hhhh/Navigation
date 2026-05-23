@@ -50,7 +50,8 @@ Hence, we could have:
 &\leq \left|\gamma \sum_{s'}p(s'\mid s,a) (V_{k}(s')-V^{*}(s'))\right|\\
 &= \gamma \left| \sum_{s'}p(s'\mid s,a) (V_{k}(s')-V^{*}(s'))\right|\\
 &\leq \gamma \left| \sum_{s'}p(s'\mid s,a) \max_s \left| V_k(s)-V^*(s) \right| \right|\\
-&\leq \gamma \max_s \left| V_k(s)-V^*(s) \right|
+&= \gamma \max_s \left| V_k(s)-V^*(s) \right| \left| \sum_{s'}p(s'\mid s,a)\right|\\
+&= \gamma \max_s \left| V_k(s)-V^*(s) \right|
 \end{aligned}
 ```
 Finished proofing $(1)$. Since the statement works for all states, we have that:
