@@ -38,7 +38,7 @@ for any state $s$.
 Without loss of generality, set $k$ to be a contant natural number , $s$ to be a specific state, and define $a$ to be
 
 ```math
-a = \argmax_{a} \left|R(s,a) + \gamma \sum_{s'}p(s'\mid s,a)V_{k}(s')- \gamma \sum_{s'}p(s'\mid s,a)V^{*}(s')\right|
+a = \argmax_{a} \left| \gamma \sum_{s'}p(s'\mid s,a)V_{k}(s')- \gamma \sum_{s'}p(s'\mid s,a)V^{*}(s')\right|
 \qquad(2)
 ```
 Hence, we could have:
