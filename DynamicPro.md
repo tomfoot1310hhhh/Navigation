@@ -12,3 +12,10 @@ In this chapter, we focus on three representative DP-based methods: Value Iterat
 We begin with Value Iteration. Value Iteration iteratively updates the value function using the Bellman optimality operator, while implicitly deriving a greedy deterministic policy with respect to the current value estimate. With $V_0$ beinging the initial value function estimate, iterations of updating value function(Bellman backup) are as follows:
 
 $V_{k+1}(s) = \max_a \left[R(s,a) + \gamma \sum_{s'} p(s' \mid s,a)V_k(s')\right]$
+
+The book just stated that we can verify contraction for the Bellman backup, which is shown as follows(important for value iteration and comming Q-learning):
+
+$max_{s}\|V_{k+1}(s)-V^{*}(s)\|\leq \gamma_s \|V_{k}(s)-V^{*}(s)\|$
+
+We will try to prove this statement:
+
