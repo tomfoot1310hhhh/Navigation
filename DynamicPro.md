@@ -49,6 +49,7 @@ Hence, we could have:
 &= \left|\max_{a1}(R(s,a1) + \gamma \sum_{s^{1}}p(s^{1}\mid s,a1)V_{k}(s^{1}))-\max_{a2}(R(s,a2) + \gamma \sum_{s^{2}}p(s^{2}\mid s,a2)V^{*}(s^{2}))\right|\\
 &\leq \left|\gamma \sum_{s'}p(s'\mid s,a) (V_{k}(s')-V^{*}(s'))\right|\\
 &= \gamma \left| \sum_{s'}p(s'\mid s,a) (V_{k}(s')-V^{*}(s'))\right|\\
+&\leq \gamma \left| \sum_{s'}p(s'\mid s,a) \max_s \left| V_k(s)-V^*(s) \right| \right|\\
 &\leq \gamma \max_s \left| V_k(s)-V^*(s) \right|
 \end{aligned}
 ```
