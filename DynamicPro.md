@@ -35,10 +35,17 @@ Denote the Bellman Backup notation by $\mathcal{T}$. We will solve the statement
 ```
 for any state $s$.
 
-Without loss of generality, set $s$ to be a specific state, and define $a$ to be
+Without loss of generality, set $k$ to be a contant natural number , $s$ to be a specific state, and define $a$ to be
 
 ```math
 a = \argmax_{a} [R(s,a) + \gamma \sum_{s'}p(s'\mid s,a)V_{k}(s')]
 \qquad(2)
 ```
+Hence, we could have:
 
+```math
+\mathcal{T}V_{k}(s)-\mathcal{T}V^{*}(s) &= \mathcal{T}V_{k}(s)- V^{*}(s)\\
+&= (R(s,a)+\gamma \sum_{s'}p(s'\mid s,a)V_{k}(s'))-V^{*(s)}\\
+&\leq (R(s,a)+\gamma \sum_{s'}p(s'\mid s,a)V_{k}(s'))- (R(s,a)+\gamma \sum_{s'}p(s'\mid s,a)V_{*}(s'))\\
+&= \gamma \sum_{s'}p(s'\mid s,a)(V_{k}(s')-V^{*}(s'))
+```
