@@ -38,7 +38,7 @@ for any state $s$.
 Without loss of generality, set $s$ to be a specific state, and define $a$ to be
 
 ```math
-a = \argmax_{a} [R(s,a) + \gamma \sum_{s^{'}}p(s^{'}\mid s,a)V_{k}(s^{')]
+a = \argmax_{a} [R(s,a) + \gamma \sum_{s'}p(s'\mid s,a)V_{k}(s')]
 \qquad(2)
 ```
 
