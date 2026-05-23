@@ -25,4 +25,20 @@ The book just stated that we can verify contraction for the Bellman backup, whic
 
 Here is the  proofing to this statement:
 
-With the Bellman Backup notation denoted by $\mathcal{T}$, 
+Denote the Bellman Backup notation by $\mathcal{T}$. We will solve the statement start by proofing：
+
+```math
+\left| V_{k+1}(s)-V^*(s) \right|
+\leq
+\gamma \max_s \left| V_k(s)-V^*(s) \right|
+\qquad (1)
+```
+for any state $s$.
+
+Without loss of generality, set $s$ to be a specific state, and define $a$ to be
+
+```math
+a = \argmax_{a} [R(s,a) + \gamma \sum_{s^{'}}p(s^{'}\mid s,a)V_{k}(s^{')]
+\qquad(2)
+```
+
