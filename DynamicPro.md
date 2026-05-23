@@ -38,18 +38,16 @@ for any state $s$.
 Without loss of generality, set $k$ to be a contant natural number , $s$ to be a specific state, and define $a$ to be
 
 ```math
-a = \argmax_{a} [R(s,a) + \gamma \sum_{s'}p(s'\mid s,a)V_{k}(s')]
+a = \argmax_{a} \left|R(s,a) + \gamma \sum_{s'}p(s'\mid s,a)V_{k}(s')- \gamma \sum_{s'}p(s'\mid s,a)V^{*}(s')\right|
 \qquad(2)
 ```
 Hence, we could have:
 
 ```math
 \begin{aligned}
-\mathcal{T}V_k(s)-\mathcal{T}V^*(s)
-&= \mathcal{T}V_k(s)-V^*(s)\\
-&= \(R(s,a)+\gamma \sum_{s'}p(s'\mid s,a)V_k(s')\)-V^*(s)\\
-&\leq R(s,a)+\gamma \sum_{s'}p(s'\mid s,a)V_k(s')
--\left(R(s,a)+\gamma \sum_{s'}p(s'\mid s,a)V^*(s')\right)\\
-&= \gamma \sum_{s'}p(s'\mid s,a)\left(V_k(s')-V^*(s')\right)
+\left|\mathcal{T}V_k(s)-\mathcal{T}V^*(s)\right|
+&= \left|\max_{a1}(R(s,a1) + \gamma \sum_{s^{1}}p(s^{1}\mid s,a1)V_{k}(s^{1}))-\max_{a2}(R(s,a2) + \gamma \sum_{s^{2}}p(s^{2}\mid s,a2)V^{*}(s^{2}))\right|\\
+&\leq \left|\gamma \sum_{s'}p(s'\mid s,a) (V_{k}(s')-V^{*}(s'))\right|\\
+&= \gamma \left| \sum_{s'}p(s'\mid s,a) (V_{k}(s')-V^{*}(s'))\right|
 \end{aligned}
 ```
