@@ -82,6 +82,6 @@ Real Time Dynamic Programming is more like a concentrate version of the VI. For 
   P(s*\mid s*, a)= 1
 \end{aligned}
 ```
-for all actions $a$s.
-
+for all actions $a$s. Meaning that it terminates at $s*$. There could be other forms of interaction like reaching $T$ iteraion. Before it terminates, 
+we just updates the value of nearby states that surriunds the current state.
 
