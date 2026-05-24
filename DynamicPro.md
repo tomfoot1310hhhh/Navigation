@@ -66,8 +66,8 @@ With linear contraction, each iteration will reduce the maximum value function e
 
 ```math
 \begin{aligned}
-\phi^{*}(s) = \argmax_{a}\left[R(s,a)+ \gamma E_{p_{S}(s'\mid s,a)}[V^{*}(s')]\right]
+\pi^{*}(s) = \argmax_{a}\left[R(s,a)+ \gamma E_{p_{S}(s'\mid s,a)}[V^{*}(s')]\right]
 \end{aligned}
 ```
 
-I think that one beauty is that for VI, 
+We can see that the greedy policy is one of the policies that induced the optimal value function. I think that one beauty is that for VI is that it searches policy via finding a fix point for Bellman equation.
