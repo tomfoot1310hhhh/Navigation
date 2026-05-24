@@ -9,7 +9,7 @@ Dynamic Programming (DP) refers to a class of methods that solve sequential deci
 
 In this chapter, we focus on three representative DP-based methods: Value Iteration (VI), Real-Time Dynamic Programming (RTDP), and Policy Iteration (PI). All of these methods are model-based and rely on knowledge of the transition dynamics $P(s' \mid s,a)$.
 
-We begin with Value Iteration. Value Iteration iteratively updates the value function using the Bellman optimality operator, while implicitly deriving a greedy deterministic policy with respect to the current value estimate. With $V_0$ beinging the initial value function estimate, iterations of updating value function(Bellman backup) are as follows:
+We begin with Value Iteration. Value Iteration iteratively updates the value function using the Bellman optimality operator, while implicitly deriving a greedy deterministic policy with respect to the current value estimate. The beauty of VI is that it finds the optimal policy via looking for the optimal value function. Just to recap, the definition of V* is that it gives largest value for all states among all policy induced value functions(not all other value functions). This means that some value function(not induced by any policy) might provide larger value for some states comparing with offer from optimal value function. With $V_0$ beinging the initial value function estimate, iterations of updating value function(Bellman backup) are as follows:
 
 ```math
 V_{k+1}(s) = \max_a \left[R(s,a) + \gamma \sum_{s'} p(s' \mid s,a)V_k(s')\right]
@@ -62,3 +62,12 @@ Finished proofing $(1)$. Since the statement works for all states, we have that:
 \gamma \max_s \left| V_k(s)-V^*(s) \right|
 \end{aligned}
 ```
+With linear contraction, each iteration will reduce the maximum value function error. When optimal value function is obtained, we can obatin a greedy policy using:
+
+```math
+\begin{aligned}
+\phi^{*}(s) = \argmax_{a}\left[R(s,a)+ \gamma E_{p_{S}(s'\mid s,a)}[V^{*}(s')]\right]
+\end{aligned}
+```
+
+I think that one beauty is that for VI, 
