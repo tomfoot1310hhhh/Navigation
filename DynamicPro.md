@@ -73,3 +73,7 @@ With linear contraction, each iteration will reduce the maximum value function e
 ```
 
 We can see that the greedy policy is one of the policies that induced the optimal value function. I think that one beauty is that for VI is that it searches policy via finding a fix point for Bellman equation.
+
+                                                 Real Time Dynamic Programming
+                                                 
+
