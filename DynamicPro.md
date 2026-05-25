@@ -82,6 +82,9 @@ Real Time Dynamic Programming is more like a concentrate version of the VI. For 
   P(s*\mid s*, a)= 1
 \end{aligned}
 ```
-for all actions $a$s. Meaning that it terminates at $s*$. There could be other forms of interaction like reaching $T$ iteraion. Before it terminates, 
-we just updates the value of nearby states that surriunds the current state.
+for all actions $a$s. Meaning that it terminates at $s*$. There could be other forms of interaction like reaching $T$ iteraion. When it reaches a state $s$, it performs Bellman backup to that specific state: $V(s)\leftarrow \max_{a}E_{p_{S}(s'\mid s,a)}[R(s,a)+\gamma V(s')]$ , then it pick an action $a$(could be with some exploration like epsilon-greedy action) to real next state and the iteration carries on. In summary, RTDP is like a more general version of VI(e.g. asynchronous value iteration). It is more suitable for sparse reachable region(will look on this later) with tradeoff of losing linear convergence to optimal value function due to partial update each time.
+
+                                                        Policy Iteration
+
+
 
