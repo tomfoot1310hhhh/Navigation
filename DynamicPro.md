@@ -76,7 +76,7 @@ We can see that the greedy policy is one of the policies that induced the optima
 
                                                  Real Time Dynamic Programming
                                                  
-Real Time Dynamic Programming is more like a focused version of the VI. For VI, we need update the value of all states every iteration which requires a lot computation. In order to counter this, RTDP is a method focused on updating the value along a trajectory. RTDP is operating under a episodic MDP. Here is an introduction about episodic MDPs: An episodic MDP is an MDP in which interactions terminate after a finite trajectory. Take a short path problem for example, the interaction is that when the agent reaches a goal state $s*$, then the MDP will set:
+RTDP is a trajectory-focused asynchronous variant of Value Iteration that concentrates computation on reachable states. For VI, we need update the value of all states every iteration which requires a lot computation. In order to counter this, RTDP is a method focused on updating the value along a trajectory. RTDP is operating under a episodic MDP. Here is an introduction about episodic MDPs: An episodic MDP is an MDP in which interactions terminate after a finite trajectory. Take a short path problem for example, the interaction is that when the agent reaches a goal state $s*$, then the MDP will set:
 ```math
 \begin{aligned}
   P(s*\mid s*, a)= 1
