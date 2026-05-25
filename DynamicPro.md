@@ -76,13 +76,13 @@ We can see that the greedy policy is one of the policies that induced the optima
 
                                                  Real Time Dynamic Programming
                                                  
-Real Time Dynamic Programming is more like a concentrate version of the VI. For VI, we need update the value of all states every iteration which requires a lot computation. In order to counter this, RTDP is a method focused on updating the value along a trajectory. RTDP is operating under a episodic MDP. Here is an introduction about episodic MDPs: episodic MDPs all have a way to terminate through interaction. Take a short path problem for example, the interaction is that when the agent reaches a goal state $s*$, then the MDP will set:
+Real Time Dynamic Programming is more like a focused version of the VI. For VI, we need update the value of all states every iteration which requires a lot computation. In order to counter this, RTDP is a method focused on updating the value along a trajectory. RTDP is operating under a episodic MDP. Here is an introduction about episodic MDPs: An episodic MDP is an MDP in which interactions terminate after a finite trajectory. Take a short path problem for example, the interaction is that when the agent reaches a goal state $s*$, then the MDP will set:
 ```math
 \begin{aligned}
   P(s*\mid s*, a)= 1
 \end{aligned}
 ```
-for all actions $a$s. Meaning that it terminates at $s*$. There could be other forms of interaction like reaching $T$ iteraion. When it reaches a state $s$, it performs Bellman backup to that specific state: $V(s)\leftarrow \max_{a}E_{p_{S}(s'\mid s,a)}[R(s,a)+\gamma V(s')]$ , then it pick an action $a$(could be with some exploration like epsilon-greedy action) to real next state and the iteration carries on. In summary, RTDP is like a more general version of VI(e.g. asynchronous value iteration). It is more suitable for sparse reachable region(will look on this later) with tradeoff of losing linear convergence to optimal value function due to partial update each time.
+for all actions $a$s. Meaning that it reaches absorbing state. There could be other forms of interaction like reaching $T$ iteraion. When it reaches a state $s$, it performs Bellman backup to that specific state: $V(s)\leftarrow \max_{a}E_{p_{S}(s'\mid s,a)}[R(s,a)+\gamma V(s')]$ , then it pick an action $a$(could be with some exploration like epsilon-greedy action) to real next state and the iteration carries on. In summary, RTDP is like a more general version of VI(e.g. asynchronous value iteration). It is more suitable for sparse reachable region(will look on this later). However, unlike standard Value Iteration, RTDP does not always inherit the straightforward global contraction guarantee due to its partial state updates.
 
                                                         Policy Iteration
 
