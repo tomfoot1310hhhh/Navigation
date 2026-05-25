@@ -86,5 +86,12 @@ for all actions $a$s. Meaning that it reaches absorbing state. There could be ot
 
                                                         Policy Iteration
 
+Policy Iteration is an ADMM style method that needs less iteration to converge comparing with VI. It consists of two parts: policy evaluationa and policy improvement. 
+For policy evaluation, we evaluate current policy by calculating its value function. The policy assumption here says that we are only considering deterministic policies which aligns with VI. By recalling Bellman's equation:
 
+```math
+\begin{aligned}
+  V(s) = E_{\pi(a\mid s)} \left( R(s,a)+\gamma E_{p_{S}(s'\mid s,a)}\left[V^{*}(s')\right] \right)
+\end{aligned}
+```
 
