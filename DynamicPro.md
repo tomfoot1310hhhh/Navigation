@@ -111,4 +111,4 @@ for all states with $\mathbf{v(s)}:= V_{\pi}(s)$, $\mathbf{r}(s)=\sum_{a}\pi(a\m
 &= \mathbf{r}(s) + \gamma \mathbf{T}(:,s)\mathbf{v}(s)
 \end{aligned}
 ```
-Since we are operating under MDP where $R(s,a),p(s'\mid s,a)$ are known, we are just having $\|S\|$ unknowns in this system. $For each policy, we could either solve this linear system of equations by $\mathbf{v}=(\mathbf{I}-\gamma \mathbf{T})^{-1}\mathbf{r}$. 
+Since we are operating under MDP where $R(s,a),p(s'\mid s,a)$ are known, we are just having $\|S\|$ unknowns in this system. For each policy, we could either solve this linear system of equations by $\mathbf{v}=(\mathbf{I}-\gamma \mathbf{T})^{-1}\mathbf{r}$. 
