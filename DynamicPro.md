@@ -111,4 +111,13 @@ for all states with $\mathbf{v(s)}:= V_{\pi}(s)$, $\mathbf{r}(s)=\sum_{a}\pi(a\m
 &= \mathbf{r}(s) + \gamma \mathbf{T}(s,:)\mathbf{v}(s)
 \end{aligned}
 ```
-Since the transition probabilities and rewards are known in a model-based MDP, policy evaluation reduces to solving a linear system with |S| unknown variables. For each policy, we could either solve this linear system of equations by $\mathbf{v}=(\mathbf{I}-\gamma \mathbf{T})^{-1}\mathbf{r}$. 
+Since the transition probabilities and rewards are known in a model-based MDP, policy evaluation reduces to solving a linear system with |S| unknown variables. For each policy, we could either solve this linear system of equations by $\mathbf{v}=(\mathbf{I}-\gamma \mathbf{T})^{-1}\mathbf{r}$ or via value update each iteration $\mathbf{v}_{t+1} = \mathbf{r} + \gamma \mathbf{T}\mathbf{v}_t$ or using asynchronous variant. So choosing one of these involve the tradeoff between three philosophy: exact solution vs iterative global approximation vs local asynchronous approximation. We will go back and talk about this during comparison in experiments.
+
+After evaluation is completed, we then move on to policy improvement. We derive better policy $\pi'$ that acts greedyily with respect to $V_{\pi}$ for any state. The deterministic policy $\pi'$ is defined as:
+```math
+\begin{aligned}
+\pi'(s) = \arg\max_{a}{R(s,a)+ \gamma E[V_{\pi}(s')]}
+\end{aligned}
+```
+The reason why it is better than 
+
