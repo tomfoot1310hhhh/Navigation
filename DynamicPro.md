@@ -94,4 +94,20 @@ For policy evaluation, we evaluate current policy by calculating its value funct
   V(s) = E_{\pi(a\mid s)} \left( R(s,a)+\gamma E_{p_{S}(s'\mid s,a)}\left[V^{*}(s')\right] \right)
 \end{aligned}
 ```
-
+We could represent this with:
+```math
+\begin{aligned}
+  \mathbf{v} = \mathbf{r}+ \gamma \mathbf{T}\mathbf{v} 
+\end{aligned}
+```
+for all states with $\mathbf{v(s)}:= V_{\pi}(s)$, $\mathbf{r}(s)=\sum_{a}\pi(a\mid s)R(s,a)$(reward vector) and $\mathbf{T}(s'\mid s)= \sum_{a}\pi(a\mid s)p(s'\mid s,a)$(state transition matrix). Here are details why it could be shown in this way. Without loss of generality, we pick arbitrary state $s$, we have:
+```math
+\begin{aligned}
+\mathbf{s}&=V_{\pi}(s)\\
+&= E_{\pi(a\mid s)} \left( R(s,a)+\gamma E_{p_{S}(s'\mid s,a)}\left[V^{*}(s')\right] \right)\\
+&= \mathbf{s} + \gamma E_{\pi(a\mids)}\left(E_{T(s'\mid s,a)}[V(s')]\right)\\
+&= \mathbf{s} + \gamma \sum_{a}\sum_{s'} \pi(a\mid s)p(s'\mid s,a)v(s')\\
+&= \mathbf{s} + \gamma \sum_{s'}\left(\sum_{a}\sum_{s'} \left(\pi(a\mid s)p(s'\mid s,a)\right)v(s')\right)\\
+&= \mathbf{s} + \gamma \mathbf{T}(:,s)\mathbf{v}
+\end{aligned}
+```
