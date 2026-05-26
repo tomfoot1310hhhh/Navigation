@@ -86,12 +86,12 @@ for all actions $a$s. Meaning that it reaches absorbing state. There could be ot
 
                                                         Policy Iteration
 
-Policy Iteration is an ADMM style method that needs less iteration to converge comparing with VI. It consists of two parts: policy evaluationa and policy improvement. 
+Policy Iteration (PI) is an iterative dynamic programming method that often converges in fewer iterations than Value Iteration (VI). It consists of two parts: policy evaluationa and policy improvement. 
 For policy evaluation, we evaluate current policy by calculating its value function. The policy assumption here says that we are only considering deterministic policies which aligns with VI. By recalling Bellman's equation:
 
 ```math
 \begin{aligned}
-  V(s) = E_{\pi(a\mid s)} \left( R(s,a)+\gamma E_{p_{S}(s'\mid s,a)}\left[V^{*}(s')\right] \right)
+  V(s) = E_{\pi(a\mid s)} \left( R(s,a)+\gamma E_{p_{S}(s'\mid s,a)}\left[V(s')\right] \right)
 \end{aligned}
 ```
 We could represent this with:
@@ -108,7 +108,7 @@ for all states with $\mathbf{v(s)}:= V_{\pi}(s)$, $\mathbf{r}(s)=\sum_{a}\pi(a\m
 &= \mathbf{r}(s) + \gamma E_{\pi(a\mid s)}\left(E_{T(s'\mid s,a)}[V(s')]\right)\\
 &= \mathbf{r}(s) + \gamma \sum_{a}\sum_{s'} \pi(a\mid s)p(s'\mid s,a)v(s')\\
 &= \mathbf{r}(s) + \gamma \sum_{s'}\left(\sum_{a}\sum_{s'} \left(\pi(a\mid s)p(s'\mid s,a)\right)v(s')\right)\\
-&= \mathbf{r}(s) + \gamma \mathbf{T}(:,s)\mathbf{v}(s)
+&= \mathbf{r}(s) + \gamma \mathbf{T}(s,:)\mathbf{v}(s)
 \end{aligned}
 ```
 Since we are operating under MDP where $R(s,a),p(s'\mid s,a)$ are known, we are just having $\|S\|$ unknowns in this system. For each policy, we could either solve this linear system of equations by $\mathbf{v}=(\mathbf{I}-\gamma \mathbf{T})^{-1}\mathbf{r}$. 
