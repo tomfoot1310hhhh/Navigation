@@ -103,7 +103,7 @@ We could represent this with:
 for all states with $\mathbf{v(s)}:= V_{\pi}(s)$, $\mathbf{r}(s)=\sum_{a}\pi(a\mid s)R(s,a)$(reward vector) and $\mathbf{T}(s'\mid s)= \sum_{a}\pi(a\mid s)p(s'\mid s,a)$(state transition matrix). Here are details why it could be shown in this way. Without loss of generality, we pick arbitrary state $s$, we have:
 ```math
 \begin{aligned}
-\mathbf{v}(s&=V_{\pi}(s)\\
+\mathbf{v}(s)&=V_{\pi}(s)\\
 &= E_{\pi(a\mid s)} \left( R(s,a)+\gamma E_{p_{S}(s'\mid s,a)}\left[V^{*}(s')\right] \right)\\
 &= \mathbf{s} + \gamma E_{\pi(a\mid s)}\left(E_{T(s'\mid s,a)}[V(s')]\right)\\
 &= \mathbf{s} + \gamma \sum_{a}\sum_{s'} \pi(a\mid s)p(s'\mid s,a)v(s')\\
