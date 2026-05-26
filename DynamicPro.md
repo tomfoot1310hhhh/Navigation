@@ -40,7 +40,7 @@ for any state $s$.
 Without loss of generality, set $k$ to be a contant natural number , $s$ to be a specific state, and define $a$ to be
 
 ```math
-a = \argmax_{a} \left| \gamma \sum_{s'}p(s'\mid s,a)V_{k}(s')- \gamma \sum_{s'}p(s'\mid s,a)V^{*}(s')\right|
+a = \arg\max_{a} \left| \gamma \sum_{s'}p(s'\mid s,a)V_{k}(s')- \gamma \sum_{s'}p(s'\mid s,a)V^{*}(s')\right|
 \qquad(2)
 ```
 Hence, we could have:
@@ -68,7 +68,7 @@ With linear contraction, each iteration will reduce the maximum value function e
 
 ```math
 \begin{aligned}
-\pi^{*}(s) = \argmax_{a}\left[R(s,a)+ \gamma E_{p_{S}(s'\mid s,a)}[V^{*}(s')]\right]
+\pi^{*}(s) = \arg\max_{a}\left[R(s,a)+ \gamma E_{p_{S}(s'\mid s,a)}[V^{*}(s')]\right]
 \end{aligned}
 ```
 
