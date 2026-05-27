@@ -86,7 +86,7 @@ for all actions $a$s. Meaning that it reaches absorbing state. There could be ot
 
                                                         Policy Iteration
 
-Policy Iteration (PI) is an iterative dynamic programming method that often converges in fewer iterations than Value Iteration (VI). It consists of two parts: policy evaluationa and policy improvement. 
+Policy Iteration (PI) is an iterative dynamic programming method that often converges in fewer iterations than Value Iteration (VI). It consists of two parts: policy evaluationa and policy improvement. Value iteration finds the optimal policy via trying to find the optimal value function. However, the convergent to optimal value function might be slow due to linear contraction. Policy Iteration is considering policies in discrete policies space as anchors. It uses them to jump between policy induced functions until it reaches optimal.
 For policy evaluation, we evaluate current policy by calculating its value function. The policy assumption here says that we are only considering deterministic policies which aligns with VI. By recalling Bellman's equation:
 
 ```math
@@ -119,11 +119,11 @@ After evaluation is completed, we then move on to Policy Improvement. We derive 
 \pi'(s) = \arg\max_{a}{R(s,a)+ \gamma E[V_{\pi}(s')]}
 \end{aligned}
 ```
-By denoting $a'= \pi(s)$ for arbitrary picked state $s$, we can have that:
+By denoting $a'= \pi(s)$ for arbitrary picked state $s$, $\mathbf{r'}(s)=\sum_{a}\pi'(a\mid s) R(s,a)$ and $\mathbf{T'}(s'\mid s)= \sum_{a}\pi'(a\mid s)p(s'\mid s,a)$, we can have that:
 ```math
 \begin{aligned}
-V_{\pi'}(s) = \max_{a}{R(s,a)+\gamma E[V_{\pi}(s')]} \geq E_{a'}(R(s,a') +\gamma E[V_{\pi}(s')])= V_{\pi}(s)
+\mathbf{r'}(s)+ \gamma \mathbf{T'v}(s) = \max_{a}{R(s,a)+\gamma E[V_{\pi}(s')]} \geq E_{a'}(R(s,a') +\gamma E[V_{\pi}(s')])= V_{\pi}(s)
 \end{aligned}
 ```
-Hence, we have that $V_{\pi'}\geq V_{\pi}$. The intuition for Policy Improvement is that the inducing policy just satisfies the Bellman equation, not the Bellman optimal equations. It means that there could be better policies for the induced value function comparing with the inducing policy.  
+Hence, we have that $V_{\pi'}\geq V_{\pi}$. The intuition for Policy Improvement is that the inducing policy just satisfies the Bellman equation, not the Bellman optimal equations. It means that there could be better policies for the induced value function comparing with the inducing policy. Actuallly
 
