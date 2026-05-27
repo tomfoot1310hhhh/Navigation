@@ -113,11 +113,17 @@ for all states with $\mathbf{v(s)}:= V_{\pi}(s)$, $\mathbf{r}(s)=\sum_{a}\pi(a\m
 ```
 Since the transition probabilities and rewards are known in a model-based MDP, policy evaluation reduces to solving a linear system with |S| unknown variables. For each policy, we could either solve this linear system of equations by $\mathbf{v}=(\mathbf{I}-\gamma \mathbf{T})^{-1}\mathbf{r}$ or via value update each iteration $\mathbf{v}_{t+1} = \mathbf{r} + \gamma \mathbf{T}\mathbf{v}_t$ or using asynchronous variant. So choosing one of these involve the tradeoff between three philosophy: exact solution vs iterative global approximation vs local asynchronous approximation. We will go back and talk about this during comparison in experiments.
 
-After evaluation is completed, we then move on to policy improvement. We derive better policy $\pi'$ that acts greedyily with respect to $V_{\pi}$ for any state. The deterministic policy $\pi'$ is defined as:
+After evaluation is completed, we then move on to Policy Improvement. We derive better policy $\pi'$ that acts greedyily with respect to $V_{\pi}$ for any state. The deterministic policy $\pi'$ is defined as:
 ```math
 \begin{aligned}
 \pi'(s) = \arg\max_{a}{R(s,a)+ \gamma E[V_{\pi}(s')]}
 \end{aligned}
 ```
-The reason why it is better than 
+By denoting $a'= \pi(s)$ for arbitrary picked state $s$, we can have that:
+```math
+\begin{aligned}
+V_{\pi'}(s) = \arg\max_{a}{R(s,a)+\gamma E[V_{\pi}(s')]} \geq R(s,a') +\gamma E[V_{\pi}(s')]
+\end{aligned}
+```
+Hence, we have that $V_{\pi'}\geq V_{\pi}$. The intuition for Policy Improvement is that the inducing policy just satisfies the Bellman equation, not the Bellman optimal equations. It means that there could be better policies for the induced value function comparing with the inducing policy.  
 
