@@ -124,6 +124,27 @@ By denoting $a'= \pi(s)$ for arbitrary picked state $s$, $\mathbf{r'}(s)=\sum_{a
 \begin{aligned}
 \mathbf{r'}(s)+ \gamma \mathbf{T'v}(s) = \max_{a}{R(s,a)+\gamma E[V_{\pi}(s')]} \geq E_{a'}(R(s,a') +\gamma E[V_{\pi}(s')])= V_{\pi}(s)
 \end{aligned}
+\qquad(3)
+```
+Substituting $(3)$, we have:
+```math
+\begin{aligned}
+\mathbf{T'v}\leq \mathbf{T'}(\mathbf{r'}+\gamma \mathbf{T'v})
+\end{aligned}
+\qquad(4)
+```
+Substituting $(3)$ and $(4)$, we have:
+```math
+\begin{aligned}
+\mathbf{v}\leq \mathbf{r'}+\gamma \mathbf{T'v}\leq \mathbf{r'}+\gamma \mathbf{T'}(\mathbf{r'}+\gamma \mathbf{T'v})\leq \mathbf{r'}+\gamma \mathbf{T'}(\mathbf{r'}+ \gamma \mathbf{T'}(\mathbf{r'}+\gamma \mathbf{T'v}))\leq...
+\end{aligned}
+\qquad(5)
+```
+When we take limit of $(5)$, we have that:
+```math
+\begin{aligned}
+\mathbf{v}\leq (\mathbf{I})+\gamma \mathbf{T'}+\gamma^{2}\mathbf{T'}^{2}+...)\mathbf{r'}=(\mathbf{I}-\gamma \mathbf{T'})^{-1}\mathbf{r'}= \mathbf{v'}
+\end{aligned}
 ```
 Hence, we have that $V_{\pi'}\geq V_{\pi}$. The intuition for Policy Improvement is that the inducing policy just satisfies the Bellman equation, not the Bellman optimal equations. It means that there could be better policies for the induced value function comparing with the inducing policy. Actuallly
 
