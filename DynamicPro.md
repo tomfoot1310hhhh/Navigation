@@ -122,7 +122,7 @@ After evaluation is completed, we then move on to Policy Improvement. We derive 
 By denoting $a'= \pi(s)$ for arbitrary picked state $s$, we can have that:
 ```math
 \begin{aligned}
-V_{\pi'}(s) = \max_{a}{R(s,a)+\gamma E[V_{\pi}(s')]} \geq R(s,a') +\gamma E[V_{\pi}(s')]
+V_{\pi'}(s) = \max_{a}{R(s,a)+\gamma E[V_{\pi}(s')]} \geq E_{a'}(R(s,a') +\gamma E[V_{\pi}(s')])= V_{\pi}(s)
 \end{aligned}
 ```
 Hence, we have that $V_{\pi'}\geq V_{\pi}$. The intuition for Policy Improvement is that the inducing policy just satisfies the Bellman equation, not the Bellman optimal equations. It means that there could be better policies for the induced value function comparing with the inducing policy.  
