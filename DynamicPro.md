@@ -151,8 +151,8 @@ Hence, we have that $V_{\pi'}\geq V_{\pi}$. The intuition for Policy Improvement
 PI altertnates between policy evaluation and improvement steps. It iterates through different deterministic policies. We can prove that whenever policy is unchanged after one policy improvement then we have the optimal policy. If after k iteration, we have $\pi_k$, we obtain its value function and $\pi_{k+1}$. Having $\pi_k=\pi_{k+1}$ means that:
 ```math
 \begin{aligned}
-\pi_k(s) &= argmax_{a}(R(s,a)+ \sum_{s'}p(s'\mid s,a)V_k(s'))\\
-V_k(s) &= \sum_{a}\pi_k(a\mid s) R(s,a)+ \gamma \sum_{a}\pi_{k}(a\mid s)p(s'\mid s,a) = max_{a}(R(s,a)+\sum_{s'}p(s'\mid s,a)V_k(s'))
+\pi_k(s) &= argmax_{a}(R(s,a)+ \gamma\sum_{s'}p(s'\mid s,a)V_k(s'))\\
+V_k(s) &= \sum_{a}\pi_k(a\mid s) R(s,a)+ \gamma \sum_{a}\pi_{k}(a\mid s)p(s'\mid s,a) = max_{a}(R(s,a)+\gamma\sum_{s'}p(s'\mid s,a)V_k(s'))
 \end{aligned}
 ```
 Meaning that $V_k$ is optimal since it satisfies Bellman optimal equation. Hence we could stop whenever policy is not changed after policy improvement and the latest value function is the optimal value function. However, PI has drawback with scalability. Though we are just considering deterministic policy, the policy space have $\|A\|^{\|S\|}$ policies. When $\|S\|$ becomes large, it could be catastrophic.
