@@ -146,5 +146,14 @@ When we take limit of $(5)$, we have that:
 \mathbf{v}\leq (\mathbf{I})+\gamma \mathbf{T'}+\gamma^{2}\mathbf{T'}^{2}+...)\mathbf{r'}=(\mathbf{I}-\gamma \mathbf{T'})^{-1}\mathbf{r'}= \mathbf{v'}
 \end{aligned}
 ```
-Hence, we have that $V_{\pi'}\geq V_{\pi}$. The intuition for Policy Improvement is that the inducing policy just satisfies the Bellman equation, not the Bellman optimal equations. It means that there could be better policies for the induced value function comparing with the inducing policy. Actuallly
+Hence, we have that $V_{\pi'}\geq V_{\pi}$. The intuition for Policy Improvement is that the inducing policy just satisfies the Bellman equation, not the Bellman optimal equations. It means that there could be better policies for the induced value function comparing with the inducing policy. 
+
+PI altertnates between policy evaluation and improvement steps. It iterates through different deterministic policies. We can prove that whenever policy is unchanged after one policy improvement then we have the optimal policy. If after k iteration, we have $\pi_k$, we obtain its value function and $\pi_{k+1}$. Having $\pi_k=\pi_{k+1}$ means that:
+```math
+\begin{aligned}
+\pi_k(s) &= argmax_{a}(R(s,a)+ \sum_{s'}p(s'\mid s,a)V_k(s'))\\
+\V_k(s) &= \sum_{a}\pi_k(a\mid s) R(s,a)+ \gamma \sum_{a}\pi_{k}(a\mid s)p(s'\mid s,a) = max_{a}(R(s,a)+\sum_{s'}p(s'\mid s,a)V_k(s'))
+\end{aligned}
+```
+Meaning that $V_k$ is optimal since it satisfies Bellman optimal equation. Hence we could stop whenever policy is not changed after policy improvement and the latest value function is the optimal value function. However, PI has drawback with scalability. Though we are just considering deterministic policy, the policy space have $\|A\|^{\|S\|}$ policies. When $\|S\|$ becomes large, it could be catastrophic.
 
