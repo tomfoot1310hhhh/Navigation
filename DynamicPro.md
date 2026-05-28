@@ -152,7 +152,7 @@ PI altertnates between policy evaluation and improvement steps. It iterates thro
 ```math
 \begin{aligned}
 \pi_k(s) &= argmax_{a}(R(s,a)+ \sum_{s'}p(s'\mid s,a)V_k(s'))\\
-\V_k(s) &= \sum_{a}\pi_k(a\mid s) R(s,a)+ \gamma \sum_{a}\pi_{k}(a\mid s)p(s'\mid s,a) = max_{a}(R(s,a)+\sum_{s'}p(s'\mid s,a)V_k(s'))
+V_k(s) &= \sum_{a}\pi_k(a\mid s) R(s,a)+ \gamma \sum_{a}\pi_{k}(a\mid s)p(s'\mid s,a) = max_{a}(R(s,a)+\sum_{s'}p(s'\mid s,a)V_k(s'))
 \end{aligned}
 ```
 Meaning that $V_k$ is optimal since it satisfies Bellman optimal equation. Hence we could stop whenever policy is not changed after policy improvement and the latest value function is the optimal value function. However, PI has drawback with scalability. Though we are just considering deterministic policy, the policy space have $\|A\|^{\|S\|}$ policies. When $\|S\|$ becomes large, it could be catastrophic.
