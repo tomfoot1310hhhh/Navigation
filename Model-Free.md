@@ -13,5 +13,5 @@ Starting with Monto Carlo estimation. It modifies the value evaluation of Policy
   V(s) = E_{\pi(a\mid s)} \left( R(s,a)+\gamma E_{p_{S}(s'\mid s,a)}\left[V(s')\right] \right)
 \end{aligned}
 ```
-where we require explicit value for $p_{S}(s'\mid s,a)$. Monto Carlo approximation uses rounds of 
+where we require explicit value for $p_{S}(s'\mid s,a)$. Monto Carlo approximation uses rounds of trajectories to approximate $p(s'\mid s,a)$ 
 
