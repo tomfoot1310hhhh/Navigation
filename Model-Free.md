@@ -16,7 +16,7 @@ Starting with Monto Carlo estimation. It modifies the value evaluation of Policy
 where we require explicit value for $p_{S}(s'\mid s,a)$. Monto Carlo approximation uses rounds of trajectories to approximate $V(S)$. Recall definition of Cumulative discounted reward:
 ```math
 \begin{aligned}
- G_{t}= \sum_{t}^{\infty} \gamma^{t}r_t 
+ G_{t}= \sum_{t'=t}^{\infty} \gamma^{t'-t}r_{t'} 
 \end{aligned}
 ```
 
