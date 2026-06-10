@@ -19,4 +19,4 @@ where we require explicit value for $p_{S}(s'\mid s,a)$. Monto Carlo approximati
  G_{t}= \sum_{t'=t}^{\infty} \gamma^{t'-t}r_{t'} 
 \end{aligned}
 ```
-
+with 
