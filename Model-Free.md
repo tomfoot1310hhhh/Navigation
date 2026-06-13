@@ -19,4 +19,10 @@ where we require explicit value for $p_{S}(s'\mid s,a)$. Monto Carlo approximati
  G_{t}= \sum_{t'=t}^{\infty} \gamma^{t'-t}r_{t'} 
 \end{aligned}
 ```
-with 
+Monto Carlo is using samples to approximate $V_{\pi}(s)$, it updates the $V(s_t)$ whenever the current trajectory sample walks past $s_t$. 
+```math
+\begin{aligned}
+V(s_t)\leftarrow V(s_t)+\eta [G_t-V(s_t)]
+\end{aligned}
+```
+the $\eta$ here could have many choices. We could set $\eta$ to be $\dfrac{1}{N(s)}$ where $N(s)$ stands for number that existing trajectories pass $s$ in total. We could prove that under such setting is equal to averaging $G_t$
