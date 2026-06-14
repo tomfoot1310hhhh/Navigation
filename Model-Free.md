@@ -5,6 +5,8 @@ In the previous chapter, we studied several model-based reinforcement learning m
 
 In practice, however, such a model is often unavailable. Therefore, in this chapter, we assume that the agent only has access to samples collected from the environment. We introduce two model-free methods for value estimation and control: Monte Carlo (MC) estimation and Temporal Difference (TD) learning. We then discuss TD($\lambda$), which combines ideas from both MC and TD, as well as Eligibility Traces, an efficient online implementation of TD(λ).
 
+                                                      Monte Carlo estimation 
+
 Starting with Monte Carlo estimation. It modifies the value evaluation of Policy iteration. Instead of solving Bellman equation:
 ```math
 \begin{aligned}
@@ -44,11 +46,22 @@ First, every update must wait until the entire trajectory terminates. Since the 
 
 depends on rewards observed after time $(t)$, the value ($G_t$) is unavailable until all subsequent rewards have been collected. Consequently, Monte Carlo methods may become extremely slow when trajectories are long.
 
-Second, Monte Carlo estimation often suffers from high variance. Even when starting from the same state (s), different trajectories may lead to very different future rewards. As a result, the sampled returns $G_t^{(1)},G_t^{(2)},G_t^{(3)},\ldots$
+Second, Monte Carlo estimation often suffers from high variance. Even when starting from the same state (s), different trajectories may lead to very different future rewards. As a result, the sampled returns $G_t^{(1)},G_t^{(2)},G_t^{(3)},\ldots$ 
 
-can differ significantly from one another. A large number of trajectories is therefore required before their average becomes a reliable estimate of $V_\pi(s)$.
+can differ significantly from one another. A large number of trajectories is therefore required before their average becomes a reliable estimate of $V_\pi(s)$. Here is a small example:
+Suppose state $s$ can lead to a terminal reward of +100 through one trajectory and -100 through another. Then the first few sampled returns may be:
+```math
+\begin{aligned}
+G^{(1)} &= 100
+G^{(2)} &= -100
+G^{(3)} &= 100
+G^{(4)} &= -100
+\end{aligned}
+```
+Although the true value may be close to zero, the estimate will fluctuate dramatically until many samples are collected.
 
 In modern reinforcement learning, interaction with the environment is often more expensive than computation itself. Since Monte Carlo methods require many complete trajectories to obtain accurate estimates, their sample efficiency is usually poor. This motivates the development of Temporal Difference (TD) learning, which updates value estimates after every transition instead of waiting for the end of an episode.
 
+                                             Temporal Difference (TD) learning
 
-
+A straight forward thought to solve 
