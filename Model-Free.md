@@ -27,17 +27,7 @@ V(s_t)\leftarrow V(s_t)+\eta [G_t-V(s_t)]
 ```
 where s_t denotes the state visited at time step t in the current trajectory. The $\eta$ here could have many choices. We are We could set $\eta$ to be $\dfrac{1}{N(s)}$ where N(s) denotes the total number of visits to state s. We could prove that under such setting is equal to averaging $G_t$. Before that, one important thing about Monte Carlo approximation is that each update must wait for the whole trajectory to be finished since the value of $G_t$ consists of rewards after $t$. 
 
-To show that choosing
-
-$
-\eta_t=\frac1t
-$
-
-is equivalent to averaging returns, consider an arbitrary state s. Let
-
-$
-G^1,G^2,\ldots,G^{t^\ast}
-$
+To show that choosing $\eta_t=\dfrac{1}{t}$ is equivalent to averaging returns, consider an arbitrary state s. Let $G^1,G^2,\ldots,G^{t^\ast}$
 
 denote all observed returns following visits to s. Starting from the last update and recursively expanding the update rule, we obtain:
 ```math
