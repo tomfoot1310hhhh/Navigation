@@ -1,11 +1,9 @@
 
                                                         Chapter 3: Model-free Methods
 
-From last chapter, we studied several model-based methods: Value iteration, Real-time dyamic Programming and Policy iteration. They do analysis relying 
-on explicit world models since the transition dynamics p(s',r|s,a) are assumed to be known. But lacking explicit world model is often the real case. For this 
-chapter, we assume that we only have access to samples from the environment. We will analysis two model-free methods and modifcation for them: Monte Carlo estimation, Temporal 
-difference(TD) learning, the combination of former two methods using TD($\lambda$) and Eligibility traces. 
+In the previous chapter, we studied several model-based reinforcement learning methods, including Value Iteration, Real-Time Dynamic Programming (RTDP), and Policy Iteration. These methods rely on an explicit world model, since the transition dynamics $p(s',r\mid s,a)$ are assumed to be known.
 
+In practice, however, such a model is often unavailable. Therefore, in this chapter, we assume that the agent only has access to samples collected from the environment. We introduce two model-free methods for value estimation and control: Monte Carlo (MC) estimation and Temporal Difference (TD) learning. We then discuss TD($\lambda$), which combines ideas from both MC and TD, as well as Eligibility Traces, an efficient online implementation of TD(λ).
 
 Starting with Monte Carlo estimation. It modifies the value evaluation of Policy iteration. Instead of solving Bellman equation:
 ```math
