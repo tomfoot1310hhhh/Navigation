@@ -52,9 +52,9 @@ can differ significantly from one another. A large number of trajectories is the
 Suppose state $s$ can lead to a terminal reward of +100 through one trajectory and -100 through another. Then the first few sampled returns may be:
 ```math
 \begin{aligned}
-G^{(1)} &= 100
-G^{(2)} &= -100
-G^{(3)} &= 100
+G^{(1)} &= 100\\
+G^{(2)} &= -100\\
+G^{(3)} &= 100\\
 G^{(4)} &= -100
 \end{aligned}
 ```
