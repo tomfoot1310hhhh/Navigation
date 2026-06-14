@@ -25,4 +25,14 @@ Monto Carlo is using samples to approximate $V_{\pi}(s)$, it updates the $V(s_t)
 V(s_t)\leftarrow V(s_t)+\eta [G_t-V(s_t)]
 \end{aligned}
 ```
-the $\eta$ here could have many choices. We could set $\eta$ to be $\dfrac{1}{N(s)}$ where $N(s)$ stands for number that existing trajectories pass $s$ in total. We could prove that under such setting is equal to averaging $G_t$
+where $s_t$ means the $t$th state current trajectory passes. The $\eta$ here could have many choices. We are We could set $\eta$ to be $\dfrac{1}{N(s)}$ where $N(s)$ stands for number that existing trajectories pass $s$ in total. We could prove that under such setting is equal to averaging $G_t$. Before that, one important thing about Monto Carlo approximation is that each update must wait for the whole trajectory to be finished since the value of $G_t$ consists of rewards after $t$. 
+
+Here is a brief proof for Monto Carlo approximation when we have $\eta = \dfrac{1}{N(s)}$. Without loss of generality, let us pick $t^{*}$ that makes $\eta^{t}$ small enough and arbitiary picked state $s$. We consider that in  the Using recursion, we have:
+```math
+\begin{aligned}
+  V(s)= 
+\end{aligned}
+```
+
+
+
