@@ -1,5 +1,5 @@
 
-                                                        Chapter 3: Model-free Methods
+                                                  Chapter 3: Model-free Methods
 
 In the previous chapter, we studied several model-based reinforcement learning methods, including Value Iteration, Real-Time Dynamic Programming (RTDP), and Policy Iteration. These methods rely on an explicit world model, since the transition dynamics $p(s',r\mid s,a)$ are assumed to be known.
 
