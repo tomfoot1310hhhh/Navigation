@@ -38,5 +38,17 @@ denote all observed returns following visits to s. Starting from the last update
 \end{aligned}
 ```
 
+Although Monte Carlo estimation removes the requirement of knowing the transition dynamics $(p(s',r\mid s,a))$, it introduces several important drawbacks.
+
+First, every update must wait until the entire trajectory terminates. Since the return $G_t=\sum_{k=t}^{\infty}\gamma^{k-t}r_k$
+
+depends on rewards observed after time $(t)$, the value ($G_t$) is unavailable until all subsequent rewards have been collected. Consequently, Monte Carlo methods may become extremely slow when trajectories are long.
+
+Second, Monte Carlo estimation often suffers from high variance. Even when starting from the same state (s), different trajectories may lead to very different future rewards. As a result, the sampled returns $G_t^{(1)},G_t^{(2)},G_t^{(3)},\ldots$
+
+can differ significantly from one another. A large number of trajectories is therefore required before their average becomes a reliable estimate of $V_\pi(s)$.
+
+In modern reinforcement learning, interaction with the environment is often more expensive than computation itself. Since Monte Carlo methods require many complete trajectories to obtain accurate estimates, their sample efficiency is usually poor. This motivates the development of Temporal Difference (TD) learning, which updates value estimates after every transition instead of waiting for the end of an episode.
+
 
 
