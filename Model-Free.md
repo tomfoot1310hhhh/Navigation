@@ -29,15 +29,15 @@ where s_t denotes the state visited at time step t in the current trajectory. Th
 
 To show that choosing
 
-\[
+$
 \eta_t=\frac1t
-\]
+$
 
 is equivalent to averaging returns, consider an arbitrary state s. Let
 
-\[
+$
 G^1,G^2,\ldots,G^{t^\ast}
-\]
+$
 
 denote all observed returns following visits to s. Starting from the last update and recursively expanding the update rule, we obtain:
 ```math
