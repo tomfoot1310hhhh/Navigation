@@ -60,13 +60,13 @@ In modern reinforcement learning, interaction with the environment is often more
 
                                              Temporal Difference (TD) learning
 
-One straight forward method to solve problems faced by MC is by replacing $G_t$ by $r_t+ V(s_{t+1})$. Comparing with Monte Carlo approximation, TD puts lot of belief in future estimation rather than future real rewards. To be specific, the value update in TD is given as follows:
+One straight forward method to solve problems faced by MC is by replacing $G_t$ by $r_t+ \gamma V(s_{t+1})$. Comparing with Monte Carlo approximation, TD bootstraps from its current estimate of the future value rather than waiting for the actual future return. To be specific, the value update in TD is given as follows:
 ```math
 \begin{aligned}
 V(s_t)\leftarrow V(s_t)+\eta[r_t+\gamma V(s_{t+1})-V(s_t)]
 \end{aligned}
 ```
-This setting enables TD to update values online, we don't need to wait for the trajectory to end to update the values. Instead, we just wait for the trajectory to move to next state to update the $V(s_t)$. This change enables online update (Just needing the trajecotry to go one step more to update the current state value). What TD needs to update state value $V(s_t)$ are:$(s_t, a_t, r_t, s_{t+1})$ where $a_t~\pi(s_t)$. Comparing with MC, TD has smaller variance since update consists of two values $V(s_{t+1})$ and $r_t$. Unlike MC that needs loads of samples to finally approximate the state value, TD improve efficiency for samples. To be more specific, TD update takes in account more value it estimates previously ($V(s_{t+1})$) for update. As a tradeoff, TD has bias for estimating values while MC is proven as follows to have to no bias. 
+This setting enables TD to update values online, we don't need to wait for the trajectory to end to update the values. Instead, we just wait for the trajectory to move to next state to update the $V(s_t)$. This change enables online update (Just needing the trajecotry to go one step more to update the current state value). What TD needs to update state value $V(s_t)$ are:$(s_t, a_t, r_t, s_{t+1})$ where $a_t\~\pi(s_t)$. Comparing with MC, TD generally has lower variance because it replaces the long and highly stochastic return $Gt$ with the bootstrapped target $r_t+\gamma V(s_{t+1})$. The estimate $V(s_{t+1})$ already summarizes information collected from previous samples.TD often achieves better sample efficiency because each update reuses previously learned value estimates through bootstrapping. To be more specific, TD update takes in account more value it estimates previously ($V(s_{t+1})$) for update. As a tradeoff, TD introduces bias through bootstrapping, while Monte Carlo estimation is unbiased in expectation.
 
                                                           TD($\lambda$)
 
