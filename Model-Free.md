@@ -42,9 +42,7 @@ denote all observed returns following visits to s. Starting from the last update
 
 Although Monte Carlo estimation removes the requirement of knowing the transition dynamics $(p(s',r\mid s,a))$, it introduces several important drawbacks.
 
-First, every update must wait until the entire trajectory terminates. Since the return $G_t=\sum_{k=t}^{\infty}\gamma^{k-t}r_k$
-
-depends on rewards observed after time $(t)$, the value ($G_t$) is unavailable until all subsequent rewards have been collected. Consequently, Monte Carlo methods may become extremely slow when trajectories are long.
+First, every update must wait until the entire trajectory terminates. Since the return $G_t=\sum_{k=t}^{\infty}\gamma^{k-t}r_k$ depends on rewards observed after time $(t)$, the value ($G_t$) is unavailable until all subsequent rewards have been collected. Consequently, Monte Carlo methods may become extremely slow when trajectories are long.
 
 Second, Monte Carlo estimation often suffers from high variance. Even when starting from the same state (s), different trajectories may lead to very different future rewards. As a result, the sampled returns $G_t^{(1)},G_t^{(2)},G_t^{(3)},\ldots$ can differ significantly from one another. A large number of trajectories is therefore required before their average becomes a reliable estimate of $V_\pi(s)$. Here is a small example:
 Suppose state $s$ can lead to a terminal reward of +100 through one trajectory and -100 through another. Then the first few sampled returns may be:
@@ -62,4 +60,13 @@ In modern reinforcement learning, interaction with the environment is often more
 
                                              Temporal Difference (TD) learning
 
-A straight forward thought to solve 
+One straight forward method to solve problems faced by MC is by replacing $G_t$ by $r_t+ V(s_{t+1})$. Comparing with Monte Carlo approximation, TD puts lot of belief in future estimation rather than future real rewards. To be specific, the value update in TD is given as follows:
+```math
+\begin{aligned}
+V(s_t)\leftarrow V(s_t)+\eta[r_t+\delta V(s_{t+1})-V(s_t)]
+\end{aligned}
+```
+
+                                                          TD($\lambda$)
+
+
