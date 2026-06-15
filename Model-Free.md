@@ -66,6 +66,7 @@ One straight forward method to solve problems faced by MC is by replacing $G_t$ 
 V(s_t)\leftarrow V(s_t)+\eta[r_t+\gamma V(s_{t+1})-V(s_t)]
 \end{aligned}
 ```
+This setting enables TD to update values online, we don't need to wait for the trajectory to end to update the values. Instead, we just wait for the trajectory to move to next state to update the $V(s_t)$. This change enables online update (Just needing the trajecotry to go one step more to update the current state value). What TD needs to update state value $V(s_t)$ are:$(s_t, a_t, r_t, s_{t+1})$ where $a_t~\pi(s_t)$. Comparing with MC, TD has smaller variance since update consists of two values $V(s_{t+1})$ and $r_t$.
 
                                                           TD($\lambda$)
 
