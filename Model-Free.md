@@ -63,7 +63,7 @@ In modern reinforcement learning, interaction with the environment is often more
 One straight forward method to solve problems faced by MC is by replacing $G_t$ by $r_t+ V(s_{t+1})$. Comparing with Monte Carlo approximation, TD puts lot of belief in future estimation rather than future real rewards. To be specific, the value update in TD is given as follows:
 ```math
 \begin{aligned}
-V(s_t)\leftarrow V(s_t)+\eta[r_t+\delta V(s_{t+1})-V(s_t)]
+V(s_t)\leftarrow V(s_t)+\eta[r_t+\gamma V(s_{t+1})-V(s_t)]
 \end{aligned}
 ```
 
