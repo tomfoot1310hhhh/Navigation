@@ -68,13 +68,13 @@ V(s_t)\leftarrow V(s_t)+\eta[r_t+\gamma V(s_{t+1})-V(s_t)]
 ```
 This setting enables TD to update values online, we don't need to wait for the trajectory to end to update the values. Instead, we just wait for the trajectory to move to next state to update the $V(s_t)$. This change enables online update (Just needing the trajecotry to go one step more to update the current state value). What TD needs to update state value $V(s_t)$ are:$(s_t, a_t, r_t, s_{t+1})$ where $a_t\~\pi(s_t)$. Comparing with MC, TD generally has lower variance because it replaces the long and highly stochastic return $Gt$ with the bootstrapped target $r_t+\gamma V(s_{t+1})$. The estimate $V(s_{t+1})$ already summarizes information collected from previous samples.TD often achieves better sample efficiency because each update reuses previously learned value estimates through bootstrapping. To be more specific, TD update takes in account more value it estimates previously ($V(s_{t+1})$) for update. As a tradeoff, TD introduces bias through bootstrapping, while Monte Carlo estimation is unbiased in expectation. 
 
-The book also introduces a more general (parametric) version of TD learning, where the value function is represented as $V_{\mathbf(w)}(s)$. The value functions we discussed previously are tabular, meaning that a separate value is stored for each state. This approach works when the number of states is limited. In more general settings, however, we use a parameter vector $\mathbf{w}$ to represent the value function instead of maintaining values for individual states. We will go more detail into this but currently the update is:
+The book also introduces a more general (parametric) version of TD learning, where the value function is represented as $V_{\mathbf{w}}(s)$. The value functions we discussed previously are tabular, meaning that a separate value is stored for each state. This approach works when the number of states is limited. In more general settings, however, we use a parameter vector $\mathbf{w}$ to represent the value function instead of maintaining values for individual states. We will go more detail into this but currently the update is:
 ```math
 \begin{aligned}
-\mathbf{w} \leftarrow \mathbf{w} + \eta [r_t+\gamma V_{\mathbf{w}}(s_{t+1})-V_{\mathbf{w}}(s_t)]\nabla_{\mathbf{w}}(s_t) 
+\mathbf{w}\leftarrow\mathbf{w}+\eta\left[r_t+\gamma V_{\mathbf{w}}(s_{t+1})-V_{\mathbf{w}}(s_t)\right]\nabla_{\mathbf{w}}V_{\mathbf{w}}(s_t)
 \end{aligned}
 ```
-where we are just trying to minimise $l2$ norm squared:$\|r_t+\eta V_{\mathbf{w}}(s+{t+1})-V_{\mathbf{w}}(s_t)\|^2$.
+where we are just trying to minimise $l2$ norm squared:$\|r_t+\gamma V_{\mathbf{w}}(s+{t+1})-V_{\mathbf{w}}(s_t)\|^2$
 
                                                           TD($\lambda$)
 
