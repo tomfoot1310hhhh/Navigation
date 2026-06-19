@@ -60,7 +60,8 @@ In modern reinforcement learning, interaction with the environment is often more
 
                                              Temporal Difference (TD) learning
 
-One straight forward method to solve problems faced by MC is by replacing $G_t$ by $r_t+ \gamma V(s_{t+1})$. Comparing with Monte Carlo approximation, TD bootstraps from its current estimate of the future value rather than waiting for the actual future return. To be specific, the value update in TD is given as follows:
+It is helpful to clarify the notion of sample efficiency. In reinforcement learning, an interaction usually refers to a single transition $(s_t,a_t,r_t,s_{t+1})$. Sample efficiency measures how many interactions with the environment are required for an algorithm to achieve a certain level of performance.
+Consider a simple trajectory $s_1 \rightarrow s_2 \rightarrow s_3 \rightarrow \text{Goal}$. This trajectory contains three interactions. In Monte Carlo learning, the agent must wait until the entire trajectory is completed before computing the returns $G_t$ and updating the value estimates of the visited states. Therefore, after collecting these three interactions, Monte Carlo performs updates using the complete trajectory. One straight forward method to solve problems faced by MC is by replacing $G_t$ by $r_t+ \gamma V(s_{t+1})$. Comparing with Monte Carlo approximation, TD bootstraps from its current estimate of the future value rather than waiting for the actual future return. To be specific, the value update in TD is given as follows:
 ```math
 \begin{aligned}
 V(s_t)\leftarrow V(s_t)+\eta[r_t+\gamma V(s_{t+1})-V(s_t)]
@@ -74,8 +75,9 @@ The book also introduces a more general (parametric) version of TD learning, whe
 \mathbf{w}\leftarrow\mathbf{w}+\eta\left[r_t+\gamma V_{\mathbf{w}}(s_{t+1})-V_{\mathbf{w}}(s_t)\right]\nabla_{\mathbf{w}}V_{\mathbf{w}}(s_t)
 \end{aligned}
 ```
-where we are just trying to minimise L2 norm squared $\left\|r_t+\gamma V_{\mathbf{w}}(s_{t+1})-V_{\mathbf{w}}(s_t)\right\|_2^2$.
+where we are just trying to minimise L2 norm squared $\left\|r_t+\gamma V_{\mathbf{w}}(s_{t+1})-V_{\mathbf{w}}(s_t)\right\|_2^2$. The gradients we use in this section are just semi-gradients since we are treating $r_t+\gamma V_{\mathbf{w}}(s_{t+1})$ as contant.
 
                                                         TD($\lambda$)
-TD($\lambda$)
+                                                        
+TD($\lambda$) is a natural extension of TD learning. Instead of fully trusting the current value estimate as in TD($0$), it incorporates information from longer returns, making the target less biased. At the same time, it remains significantly more sample-efficient and online than Monte Carlo estimation.
 
