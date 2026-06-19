@@ -76,6 +76,6 @@ The book also introduces a more general (parametric) version of TD learning, whe
 ```
 where we are just trying to minimise L2 norm squared $'\left\|r_t+\gamma V_{\mathbf{w}}(s_{t+1})-V_{\mathbf{w}}(s_t)\right\|_2^2'$. In this update we use semi-gradient since we consider $r_t+\gamma V_{\mathbf{w}}(s_{t+1})$ as constant.
 
-                                                          TD($\lambda$)
+                                                          TD($'\lambda'$)
 
 
