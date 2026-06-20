@@ -100,4 +100,11 @@ Under the intention to pick more forward values, we use $\lambda$ to combine the
 G_{t}^{\lambda}=(1-\lambda)\sum_{n=1}^{\infty}\lambda^{n-1}G_{t:t+n}
 \end{aligned}
 ```
-where $\lambda\in [0,1]$.
+where $\lambda\in [0,1]$. When $\lambda$ is not $1$, we have:
+```math
+\begin{aligned}
+(1-\lambda)\sum_{n=1}^{\infty}\lambda^{n-1}&=(1-\lambda)dfrac{1}{1-\lambda}=1
+\end{aligned}
+```
+meaning that all the weight summed up to $1$. 
+
