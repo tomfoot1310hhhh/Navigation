@@ -83,7 +83,7 @@ TD($\lambda$) is a natural extension of TD learning. Instead of fully trusting t
 First we have $G_{t:T}=r_t+\eta r_{t+1}+...+\eta^{T-t-1}r_{T-1}$ which is a version of MC waiting until $T$ is large enough. By performing n-step rollout combining with value functions, we have the n-step return: 
 ```math
 \begin{aligned}
-G_{t:t+n}:=r_t+\eta r_{t+1}+...+\eta^{n-1}r_{t+n-1}+\eta^{n}V(s_{t+n})
+G_{t:t+n}:=r_t+\nabla r_{t+1}+...+\eta^{n-1}r_{t+n-1}+\eta^{n}V(s_{t+n})
 \end{aligned}
 ```
 For parametric case, the update for $w$ should be:
