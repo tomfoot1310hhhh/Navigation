@@ -92,4 +92,12 @@ For parametric case, the update for $w$ should be:
 \mathbf{w} \leftarrow \mathbf{w}+ \eta [G_{t:t+n}-V_{\mathbf{w}}(s_t)]\nabla_{\mathbf{w}}V_{\mathbf{w}}(s_t) 
 \end{aligned}
 ```
+Doing this could help propagate sparse terminal rewards back through many earilier states. Take our last example: $s_1\rightarrow s_2 \rightarrow s_3 \rightarrow goal$ where only the reaching goal rewards $1$. If we are using TD($0$),it takes several episodes for the terminal reward information to propagate back to $s_1$. However, if we are considering $G_{t:t+3}$. State $1$ could be updated during the first episode. 
 
+Under the intention to pick more forward values, we use $\lambda$ to combine the n-step returns:
+```math
+\begin{aligned}
+G_{t}^{\lambda}=(1-\lambda)\sum_{n=1}^{\infty}\lambda^{n-1}G_{t:t+n}
+\end{aligned}
+```
+where $\lambda\in [0,1]$.
