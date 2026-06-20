@@ -80,7 +80,7 @@ where we are just trying to minimise L2 norm squared $\left\|r_t+\gamma V_{\math
                                                         TD($\lambda$)
                                                         
 TD($\lambda$) is a natural extension of TD learning. Instead of fully trusting the current value estimate as in TD($0$), it incorporates information from longer returns, making the target less biased. At the same time, it remains significantly more sample-efficient and online than Monte Carlo estimation. 
-First we have $G_{t:T}:=r_t+\eta r_{t+1}+...+\eta^{T-t-1}r_[T-1}$ which is a version of MC waiting until $T$ is large enough. By performing n-step rollout combining with value functions, we have the n-step return: 
+First we have $G_{t:T}=r_t+\eta r_{t+1}+...+\eta^{T-t-1}r_[T-1}$ which is a version of MC waiting until $T$ is large enough. By performing n-step rollout combining with value functions, we have the n-step return: 
 ```math
 \begin{aligned}
 G_{t:t+n}:=r_t+\eta r_{t+1}+...+\eta^{n-1}r_{t+n-1}+\eta^{n}V(s_{t+n})
