@@ -1,5 +1,5 @@
 
-                                                           Model_based methods
+                                         Model_based methods
 
 Model-free methods need lots of data samples to achieve good performance. In order to improve sample efficiency, one approach is model-based RL. It improves sample efficiency by learning a world model (typically a transition model $p(s'\mid s,a)$ and optionally a reward model), which is then used to simulate trajectories. To be specific, the trajectories used to train the world model are collected under the current policy. After more real trajectories are collected and added to the replay buffer,we use the learned world model for planning. We can do planning via dynamic programming, or some model-free policy learning methods. Given from the textbook, the sample complexity of learning the dynamics is less than the sample complexity of learning the policy we will try to show it later in practise.
 
